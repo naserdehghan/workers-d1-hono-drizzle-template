@@ -1,5 +1,5 @@
 import { Context, Next } from "hono";
-import { decode, jwt, verify } from "hono/jwt";
+import { decode, verify } from "hono/jwt";
 import { Bindings } from "../configs/workers";
 
 export const auth = async (
