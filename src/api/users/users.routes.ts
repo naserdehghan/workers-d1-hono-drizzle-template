@@ -26,7 +26,7 @@ routes.openapi(SignupOpenAPI, async (ctx) => {
   }
 
   const id = await ctx.var.usersService.signUp({ email, password });
-  return ctx.json({ id });
+  return ctx.json({ id }, 200);
 });
 //#endregion
 //#region Sign in
@@ -39,7 +39,7 @@ routes.openapi(SigninOpenAPI, async (ctx) => {
       password,
     });
 
-    return ctx.json({ token });
+    return ctx.json({ token }, 200);
   } catch (err: any) {
     return ctx.json({ message: err.message }, 400);
   }
@@ -51,12 +51,15 @@ routes.openapi(ProfileOpenAPI, async (ctx) => {
   const userId = ctx.var.jwtPayload.id!;
   const user = await ctx.var.usersService.profile(userId);
 
-  return ctx.json({
-    user: {
-      ...user,
-      created_at: !!user.created_at ? user.created_at : undefined,
+  return ctx.json(
+    {
+      user: {
+        ...user,
+        created_at: !!user.created_at ? user.created_at : undefined,
+      },
     },
-  });
+    200
+  );
 });
 //#endregion
 
