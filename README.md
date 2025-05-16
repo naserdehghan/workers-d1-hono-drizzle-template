@@ -7,8 +7,8 @@ copy `.dev.vars.example` to `.dev.vars` and update the values
 
 ### 2.Create D1 database
 ```bash
-pnpm run db:create <db-name> # for local db
-pnpm run db:create <db-name> --local # for cf db
+pnpm run db:create <db-name> --local # for local db
+pnpm run db:create <db-name>         # for cf db
 ```
 
 then update `wrangler.jsonc` and add the database binding
