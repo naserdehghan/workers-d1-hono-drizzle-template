@@ -1,0 +1,11 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "your-project-name",
+	"main": "src/index.ts",
+	"compatibility_date": "2025-05-15",
+	"observability": {
+		"enabled": true
+	},
+	"compatibility_flags": ["nodejs_compat"],
+	"d1_databases": []
+}
